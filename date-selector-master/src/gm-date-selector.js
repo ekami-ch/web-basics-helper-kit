@@ -128,12 +128,16 @@
         // },
 
         setSelectedYear: function(yearSelected) {
+            
             var current = new Date( yearSelected, self.current.month);
             self.current = {
                 year: current.getFullYear(),
                 month: current.getMonth()
             };
             self.show();
+            document.getElementById(current.getMonth()).selected = true;
+            document.getElementById(yearSelected).selected = true;
+            
         },
 
         setSelectedMonth: function(monthSelected) {
@@ -143,6 +147,8 @@
                 month: current.getMonth()
             };
             self.show();
+            document.getElementById(current.getFullYear()).selected = true;
+            document.getElementById(monthSelected).selected = true;
         },
 
         // getPreviousYear: function() {
@@ -198,6 +204,7 @@
                 if (years === new Date().getFullYear()){
                     yearOption.selected = true;
                 }
+                yearOption.id = years;
                 yearOption.value = years;
                 yearOption.text = years;
                 yearSelectorElement.appendChild(yearOption);
@@ -221,6 +228,7 @@
                     monthOption.selected = true;
                 }
                 monthOption.value = i;
+                monthOption.id = i;
                 // monthOption.value = months[i];
                 monthOption.text = months[i];
                 monthSelectorElement.appendChild(monthOption);
