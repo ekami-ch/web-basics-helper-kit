@@ -1,7 +1,7 @@
 export {generateElement}
 // General function to create any html element (basically replace the document.createElement())
 // Tag, id, value (often text), attributes object attribute: value}, parent object, class array
-function generateElement(tag:string, objectid:string | null, value:string | null, attributes:{} | null, objectparent:any | null , objectclass:string[] | string | null) {
+function generateElement(tag:string, objectid?:string | null, value?:string | null, attributes?:{} | null, objectparent?:any | null , objectclass?:string[] | string | null) {
     var createdElement = document.createElement(tag);
 
     if (objectid) {
